@@ -41,9 +41,9 @@ let obj = {
     x: 1
 };
 
-function setVal(val) {
-    obj.x = val;
-    console.log('修改了值');
-}
-
-setVal(100);
+Object.defineProperty(obj, 'x', {
+    set() {
+        console.log('你修改了值')
+    }
+});
+obj.x = 10;
