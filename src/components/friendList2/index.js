@@ -10,7 +10,7 @@ export default class FriendList extends React.Component {
         // 状态
         let len = Object.keys(this.props.datas).length;
         this.state = {
-            expanded: new Array(len).fill(true)   // 默认三个导航都是收缩状态
+            expanded: new Array(len).fill(false)   // 默认三个导航都是收缩状态
         };
     }
 

@@ -9,6 +9,8 @@ export default class Group extends React.Component {
     }
 
     toggle(e) {
+        // 子组件内部不允许直接修改父级传入的props
+        this.props.expanded = !this.props.expanded;
     }
 
     render() {
