@@ -1,7 +1,7 @@
 import React from 'react';
 import Custom from "./components/custom";
 import Custom02 from "./components/custom02";
-import FriendList from "./components/friendList";
+import FriendList from "./components/friendList2";
 
 let datas = {
     family: {
