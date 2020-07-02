@@ -12,8 +12,7 @@
 }
 .friend-group dd {
     padding: 10px;
-    /*先注释display样式*/
-    display: -none;
+    display: none;
 }
 .friend-group.expanded dd {
     display: block;

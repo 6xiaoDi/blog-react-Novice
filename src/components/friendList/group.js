@@ -5,7 +5,7 @@ export default class Group extends React.Component {
         let {title, list} = this.props.data;
         return (
             <dl className='friend-group'>
-                <dt>{title}</dt>
+                <dt onClick={() => {console.log("你点到我了！")}}>{title}</dt>
                 {
                     list.map( item =>
                         <dd key={item.name}>
