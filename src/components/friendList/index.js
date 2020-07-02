@@ -14,9 +14,16 @@ export default class FriendList extends React.Component {
                 <div className="friend-list">
                     {Object.keys(datas).map( (key) => {
                             let data = datas[key];
+                            let {list} = data;
                             return (
                                 <dl key={key} className='friend-group'>
                                     <dt>{data.title}</dt>
+                                    {
+                                        list.map( item => {
+                                                return <dd>{item.name}</dd>
+                                            }
+                                        )
+                                    }
                                 </dl>
                             )
                         }
