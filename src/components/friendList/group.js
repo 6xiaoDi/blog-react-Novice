@@ -10,7 +10,7 @@ export default class Group extends React.Component {
     render() {
         let {title, list} = this.props.data;
         return (
-            <dl className='friend-group'>
+            <dl className={['friend-group','expanded']}>
                 <dt onClick={this.toggle.bind(this)}>{title}</dt>
                 {
                     list.map( item =>
