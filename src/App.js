@@ -1,6 +1,7 @@
 import React from 'react';
 import Custom from "./components/custom";
 import Custom02 from "./components/custom02";
+import FriendList from "./components/friendList";
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
         <hr />
         {/*{Custom()}*/}
         {/*<Custom />*/}
-        <Custom02 />
+        {/*<Custom02 />*/}
+        <FriendList />
     </div>
   );
 }
