@@ -16,6 +16,8 @@ export default class Group extends React.Component {
         this.setState({
              expanded: !this.state.expanded
         });
+        // 不是立即生效的
+        console.log(this.state.expanded);
     }
 
     render() {
