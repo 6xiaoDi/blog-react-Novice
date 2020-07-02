@@ -3,7 +3,7 @@ import React from "react";
 export default class Group extends React.Component {
 
     toggle() {
-        console.log('你点到我了吗')
+        console.log(this);
     }
 
     render() {
