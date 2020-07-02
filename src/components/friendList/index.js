@@ -2,29 +2,29 @@ import React from 'react';
 import './index.css';
 
 export default class FriendList extends React.Component {
+
+    renderList() {
+        let {datas} = this.props;
+
+        // 取出json对象中所有key生成数组再遍历
+        return Object.keys(datas).map( (key) => {
+                let data = datas[key];
+                return (
+                    <dl key={key} className='friend-group'>
+                        <dt>{data.title}</dt>
+                    </dl>
+                )
+            }
+        )
+    }
+
     render() {
-        console.log(this.props);
+
         return(
             <div>
                 <h2>好友列表</h2>
                 <div className="friend-list">
-                    <div className="friend-group">
-                        <dt>家人</dt>
-                        <dd>爸爸</dd>
-                        <dd>妈妈</dd>
-                    </div>
-                    <div className="friend-group">
-                        <dt>朋友</dt>
-                        <dd>张三</dd>
-                        <dd>李四</dd>
-                        <dd>王五</dd>
-                    </div>
-                    <div className="friend-group">
-                        <dt>客户</dt>
-                        <dd>阿里</dd>
-                        <dd>腾讯</dd>
-                        <dd>头条</dd>
-                    </div>
+                    {this.renderList()}
                 </div>
             </div>
         )
