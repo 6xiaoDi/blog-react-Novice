@@ -34,8 +34,8 @@ function App() {
     <div className="App">
         <h1>CSDN</h1>
         <hr />
-        {Custom(datas)}
-        {/*<Custom />*/}
+        {/*{Custom(datas)}*/}
+        <Custom datas={datas}/>
         {/*<Custom02 />*/}
         <FriendList />
     </div>
