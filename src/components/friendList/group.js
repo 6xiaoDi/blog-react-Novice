@@ -13,17 +13,19 @@ export default class Group extends React.Component {
     }
 
     toggle(e) {
-        this.state.expanded = !this.state.expanded;
-        console.log(this.state.expanded);
+        this.setState({
+             expanded: !this.state.expanded
+        });
     }
 
     render() {
+        console.log('render')
         let {title, list} = this.props.data;
         let {expanded} = this.state;
 
         return (
             <dl className={['friend-group', expanded ? 'expanded' : ''].join(' ')}>
-                <dt onClick={this.toggle.bind(this)}>{title}</dt>
+                <dt onClick={this.toggle}>{title}</dt>
                 {
                     list.map( item =>
                         <dd key={item.name}>
@@ -36,14 +38,3 @@ export default class Group extends React.Component {
     }
 
 }
-
-let obj = {
-    x: 1
-};
-
-Object.defineProperty(obj, 'x', {
-    set() {
-        console.log('你修改了值')
-    }
-});
-obj.x = 10;
