@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import Group from "./group";
 
 export default class FriendList extends React.Component {
 
@@ -13,19 +14,8 @@ export default class FriendList extends React.Component {
                 <h2>好友列表</h2>
                 <div className="friend-list">
                     {Object.keys(datas).map( (key) => {
-                            let data = datas[key];
-                            let {list} = data;
-                            return (
-                                <dl key={key} className='friend-group'>
-                                    <dt>{data.title}</dt>
-                                    {
-                                        list.map( item => {
-                                                return <dd>{item.name}</dd>
-                                            }
-                                        )
-                                    }
-                                </dl>
-                            )
+                            let group = datas[key]; // 带了一个title，和list 的对象
+                            return <Group key={key} data={group}></Group>
                         }
                     )}
                 </div>
