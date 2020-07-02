@@ -12,6 +12,19 @@ export default class FriendList extends React.Component {
         this.state = {
             expanded: new Array(len).fill(false)   // 默认三个导航都是收缩状态
         };
+
+        this.changeExpanded = this.changeExpanded.bind(this);
+    }
+
+    // 传给子级的事件回调函数：修改子组件的展开状态
+    // index 点击第几个导航栏
+    changeExpanded(index, val) {
+        let expanded = this.state.expanded;
+        expanded.fill(false);
+        expanded[index] = val;
+        this.setState({
+            expanded
+        });
     }
 
     render() {
@@ -25,7 +38,7 @@ export default class FriendList extends React.Component {
                 <div className="friend-list">
                     {Object.keys(datas).map( (key, index) => {
                             let group = datas[key]; // 带了一个title，和list 的对象
-                            return <Group key={key} expanded={expanded[index]} data={group}></Group>
+                            return <Group key={key} index={index} onChange={this.changeExpanded} expanded={expanded[index]} data={group}></Group>
                         }
                     )}
                 </div>
