@@ -35,9 +35,9 @@ function App() {
         <h1>CSDN</h1>
         <hr />
         {/*{Custom()}*/}
-        <Custom datas={datas} v={1} k={'kkk'}/>
+        {/*<Custom datas={datas} v={1} k={'kkk'}/>*/}
         {/*<Custom02 />*/}
-        <FriendList />
+        <FriendList datas={datas}/>
     </div>
   );
 }

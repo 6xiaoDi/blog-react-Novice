@@ -3,6 +3,7 @@ import './index.css';
 
 export default class FriendList extends React.Component {
     render() {
+        console.log(this.props);
         return(
             <div>
                 <h2>好友列表</h2>
