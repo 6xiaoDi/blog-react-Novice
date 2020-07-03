@@ -16,6 +16,82 @@ class App extends React.Component {
         this.state = {
             v1: 1
         }
+
+        this.moveElemnt = this.moveElemnt.bind(this);
+    }
+
+    moveElemnt(el) {
+        let startPos = {} // 1. 鼠标点击的位置
+
+        let boxPos={} // 2. 元素的初始位置
+
+
+
+        el.addEventListener("mousedown", (e)=>{
+            // 保存
+            // 初始鼠标位置
+            startPos.x = e.clientX;
+            startPos.y = e.clientY;
+
+            // 元素的初始位置
+            boxPos.x = parseFloat(getComputedStyle(el).left);
+            boxPos.y = parseFloat(getComputedStyle(el).top);
+
+            document.addEventListener("mousemove", drag);
+
+            let i = 1;
+
+            el.addEventListener("mouseup", ()=>{
+                console.log(i++);
+                document.removeEventListener("mousemove", drag);
+            },{
+                // 只绑定一次事件
+                once:true
+            });
+        });
+
+
+        function drag(e){
+            let nowPos = {
+                x : e.clientX,
+                y : e.clientY
+            }
+
+            let dis = {
+                x : nowPos.x - startPos.x,
+                y : nowPos.y - startPos.y
+            }
+
+            let newBoxPos = {
+                left : boxPos.x + dis.x,
+                top : boxPos.y + dis.y
+            }
+
+            // 限制左侧
+            if (newBoxPos.left < 0){
+                newBoxPos.left = 0;
+            }
+
+            // 限制右侧
+            let maxLeft = document.documentElement.clientWidth - el.offsetWidth;
+            if (newBoxPos.left > maxLeft){
+                newBoxPos.left = maxLeft;
+            }
+
+            // 限制上侧
+            if (newBoxPos.top < 0){
+                newBoxPos.top = 0;
+            }
+
+            // 限制下侧
+            let maxTop = document.documentElement.clientHeight;
+            if (newBoxPos.top > maxTop) {
+                newBoxPos.top = maxTop;
+            }
+
+            el.style.top = newBoxPos.top + 'px';
+            el.style.left = newBoxPos.left + 'px';
+        }
     }
 
     render() {
@@ -47,6 +123,7 @@ class App extends React.Component {
                 <Drag>
                     <div ref={el => {
                         console.log(el); // 解析过后的元素
+                        this.moveElemnt(el);
                     }} style={{
                         width: '100px',
                         height: '100px',
