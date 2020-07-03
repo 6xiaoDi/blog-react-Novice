@@ -13,7 +13,9 @@ export default class FormDemo extends React.Component {
     }
 
     changeV1 (e) {
-        console.log('...', e.target.value);
+        this.setState({
+            v1: e.target.value
+        })
     }
 
     render() {
