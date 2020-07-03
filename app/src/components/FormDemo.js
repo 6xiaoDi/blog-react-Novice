@@ -16,7 +16,7 @@ export default class FormDemo extends React.Component {
             <div>
                 <h2>表单</h2>
                 <hr/>
-                <input type="text" value={this.state.v1}/>
+                <input type="text" value="1"/>
                 <button onClick={ () => {
                     this.setState({
                         v1: this.state.v1 + 1
