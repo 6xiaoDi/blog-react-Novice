@@ -5,6 +5,7 @@ import RefDemo from "./components/RefDemo";
 import PropsDefaultValueDemo from "./components/PropsDefaultValueDemo";
 import PropTypesDemo from "./components/PropTypesDemo";
 import ChildrenDemo from "./components/ChildrenDemo";
+import Drag from "./components/Drag";
 
 
 class App extends React.Component {
@@ -35,13 +36,24 @@ class App extends React.Component {
                 {/*<PropTypesDemo max={9} />*/}
                 {/*<PropTypesDemo max={'csdn'} />*/}
                 {/*<PropTypesDemo />*/}
-                <ChildrenDemo title={'CSDN'}>
-                    <form>
-                        <p>
-                            用户名：<input type="text"/>
-                        </p>
-                    </form>
-                </ChildrenDemo>
+                {/*<ChildrenDemo title={'CSDN'}>*/}
+                {/*    <form>*/}
+                {/*        <p>*/}
+                {/*            用户名：<input type="text"/>*/}
+                {/*        </p>*/}
+                {/*    </form>*/}
+                {/*</ChildrenDemo>*/}
+                {/*装饰者*/}
+                <Drag>
+                    <div ref={el => {
+                        console.log(el); // 解析过后的元素
+                    }} style={{
+                        width: '100px',
+                        height: '100px',
+                        position: 'absolute',
+                        background: 'red',
+                    }}></div>
+                </Drag>
             </div>
         )
     }
