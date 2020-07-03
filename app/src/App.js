@@ -35,7 +35,14 @@ class App extends React.Component {
                 {/*<PropTypesDemo max={9} />*/}
                 {/*<PropTypesDemo max={'csdn'} />*/}
                 {/*<PropTypesDemo />*/}
-                <ChildrenDemo title={'CSDN'} content={"https://mp.csdn.net/"}/>
+                <ChildrenDemo title={'CSDN'} content={
+                    <form>
+                        <p>
+                            用户名：<input type="text"/>
+                        </p>
+                    </form>
+                }>
+                </ChildrenDemo>
             </div>
         )
     }
