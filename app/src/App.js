@@ -2,6 +2,7 @@ import React from 'react';
 import FormDemo from "./components/FormDemo";
 import UnControl from "./components/UnControl";
 import RefDemo from "./components/RefDemo";
+import PropsDefaultValueDemo from "./components/PropsDefaultValueDemo";
 
 
 class App extends React.Component {
@@ -24,8 +25,9 @@ class App extends React.Component {
 
                 {/*<UnControl value={this.state.v1} />*/}
 
-                <RefDemo />
+                {/*<RefDemo />*/}
 
+                <PropsDefaultValueDemo max={1} />
             </div>
         )
     }
