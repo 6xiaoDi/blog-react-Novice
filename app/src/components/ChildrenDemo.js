@@ -16,7 +16,7 @@ export default class ChildrenDemo extends React.Component {
                 <div className="dialog_header">
                     <span className="dialog_title">{this.props.title}</span>
                 </div>
-                <div className="dialog_content">{this.props.content}</div>
+                <div className="dialog_content">{this.props.children ? this.props.children : this.props.content}</div>
             </div>
         );
     }
