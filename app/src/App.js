@@ -4,6 +4,7 @@ import UnControl from "./components/UnControl";
 import RefDemo from "./components/RefDemo";
 import PropsDefaultValueDemo from "./components/PropsDefaultValueDemo";
 import PropTypesDemo from "./components/PropTypesDemo";
+import ChildrenDemo from "./components/ChildrenDemo";
 
 
 class App extends React.Component {
@@ -31,9 +32,10 @@ class App extends React.Component {
                 {/*<PropsDefaultValueDemo />*/}
                 {/*<PropsDefaultValueDemo max={1000} />*/}
                 {/*<PropTypesDemo max={19} />*/}
-                <PropTypesDemo max={9} />
+                {/*<PropTypesDemo max={9} />*/}
                 {/*<PropTypesDemo max={'csdn'} />*/}
                 {/*<PropTypesDemo />*/}
+                <ChildrenDemo title={'CSDN'} content={"https://mp.csdn.net/"}/>
             </div>
         )
     }
