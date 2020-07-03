@@ -1,6 +1,7 @@
 import React from 'react';
 import FormDemo from "./components/FormDemo";
 import UnControl from "./components/UnControl";
+import RefDemo from "./components/RefDemo";
 
 
 class App extends React.Component {
@@ -17,11 +18,13 @@ class App extends React.Component {
         return (
             <div className="App">
 
-                <FormDemo />
+                {/*<FormDemo />*/}
 
-                <hr/>
+                {/*<hr/>*/}
 
-                <UnControl value={this.state.v1} />
+                {/*<UnControl value={this.state.v1} />*/}
+
+                <RefDemo />
 
             </div>
         )
