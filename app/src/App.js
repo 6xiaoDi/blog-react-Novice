@@ -3,6 +3,7 @@ import FormDemo from "./components/FormDemo";
 import UnControl from "./components/UnControl";
 import RefDemo from "./components/RefDemo";
 import PropsDefaultValueDemo from "./components/PropsDefaultValueDemo";
+import PropTypesDemo from "./components/PropTypesDemo";
 
 
 class App extends React.Component {
@@ -27,8 +28,11 @@ class App extends React.Component {
 
                 {/*<RefDemo />*/}
 
-                <PropsDefaultValueDemo />
-                <PropsDefaultValueDemo max={1000} />
+                {/*<PropsDefaultValueDemo />*/}
+                {/*<PropsDefaultValueDemo max={1000} />*/}
+                {/*<PropTypesDemo max={10} />*/}
+                {/*<PropTypesDemo max={'csdn'} />*/}
+                <PropTypesDemo />
             </div>
         )
     }
