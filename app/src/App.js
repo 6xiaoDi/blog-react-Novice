@@ -30,9 +30,10 @@ class App extends React.Component {
 
                 {/*<PropsDefaultValueDemo />*/}
                 {/*<PropsDefaultValueDemo max={1000} />*/}
-                {/*<PropTypesDemo max={10} />*/}
+                {/*<PropTypesDemo max={19} />*/}
+                <PropTypesDemo max={9} />
                 {/*<PropTypesDemo max={'csdn'} />*/}
-                <PropTypesDemo />
+                {/*<PropTypesDemo />*/}
             </div>
         )
     }

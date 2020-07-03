@@ -4,9 +4,16 @@ import PropTypes from 'prop-types';
 export default class PropTypesDemo extends React.Component {
 
     static propTypes = {
-        // 会把props的值传给PropTypes.number函数，对其进行数字验证。如果没满足要求则抛出一个错误。
-        // max: PropTypes.number
-        max: PropTypes.any.isRequired
+
+        // props对象 propName:props名称 componentName 组件名称
+        max(props, propName, componentName) {
+            console.log('....');
+            let v = props[propName]; // 取值方式
+            console.log(v);
+            if (v < 10 || v > 100) {
+                throw new RangeError('max的值必须在10-100之间');
+            }
+        }
     };
 
     constructor(props) {
