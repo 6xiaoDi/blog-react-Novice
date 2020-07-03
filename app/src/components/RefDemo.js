@@ -10,20 +10,24 @@ export default class UnControl extends React.Component {
         };
 
         this.getHeight = this.getHeight.bind(this);
-        let p = document.querySelector('p');
-        console.log(p);
+        this.refE1 = null;
     }
 
     getHeight() {
-        let p = document.querySelector('p');
-        console.log(p);
+        console.log(this.refEl.offsetHeight)
     }
 
     render() {
         return(
             <div>
-                <p style={{background: 'red', color: 'white'}}>{this.state.content}</p>
                 <button onClick={this.getHeight}>按钮</button>
+                <p ref={el => {
+                    console.log('...', el)
+                    {
+                        this.refEl = el;
+                    }
+                }} style={{background: 'red', color: 'white'}}>{this.state.content}</p>
+
             </div>
         );
     }
