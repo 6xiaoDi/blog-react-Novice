@@ -27,7 +27,8 @@ class App extends React.Component {
 
                 {/*<RefDemo />*/}
 
-                <PropsDefaultValueDemo max={1} />
+                <PropsDefaultValueDemo />
+                <PropsDefaultValueDemo max={1000} />
             </div>
         )
     }

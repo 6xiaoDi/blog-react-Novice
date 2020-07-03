@@ -7,9 +7,10 @@ export default class PropsDefaultValueDemo extends React.Component {
     }
 
     render() {
+        let max = this.props.max || 1;
         return(
             <div>
-                <h2>值 - {this.props.max}</h2>
+                <h2>值 - {max}</h2>
             </div>
         );
     }
