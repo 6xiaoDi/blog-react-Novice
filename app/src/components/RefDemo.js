@@ -10,6 +10,8 @@ export default class UnControl extends React.Component {
         };
 
         this.getHeight = this.getHeight.bind(this);
+        let p = document.querySelector('p');
+        console.log(p);
     }
 
     getHeight() {
