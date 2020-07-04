@@ -19,6 +19,10 @@ export default class Mail extends React.Component{
     clickUser(friend) {
         // 子级点击选项，触发点击事件，紧接着执行父级回调函数clickUser
         console.log(friend);
+        // 更新父组件的好友列表
+        this.setState({
+            friend
+        })
     }
 
     render() {

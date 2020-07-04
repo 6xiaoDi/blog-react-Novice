@@ -25,6 +25,17 @@ export default class SendList extends React.Component{
         this.addUser = this.addUser.bind(this);
     }
 
+    static getDerivedStateFromProps(props, state) {
+        console.log(props, state);
+        if (props.friend) {
+            // 如果props传入了friend，则把传入的friend追加到state中（state依赖于外部props）
+            return {
+                users: [...state.users, props.friend]
+            }
+        }
+        return null;
+    }
+
     addUser(e) {
         // enter
         if (e.keyCode === 13) {
