@@ -22,6 +22,10 @@ export default class LifeCycleDemo extends React.Component {
         console.log('componentDidMount');
     }
 
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return this.state.value !== nextState.value;
+    }
+
     render() {
         console.log('组件开始渲染了');
         return (
