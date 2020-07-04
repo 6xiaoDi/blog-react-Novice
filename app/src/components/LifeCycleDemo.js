@@ -18,6 +18,10 @@ export default class LifeCycleDemo extends React.Component {
         console.log('getDerivedStateFromProps', props, state);
     }
 
+    componentDidMount() {
+        console.log('componentDidMount');
+    }
+
     render() {
         console.log('组件开始渲染了');
         return (
