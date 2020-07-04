@@ -27,6 +27,15 @@ export default class LifeCycleDemo extends React.Component {
         return (
             <div>
                 <h2>生命周期演示</h2>
+                <button onClick={() => {
+                    // 更新子组件的state,就会触发getDerivedStateFromProps方法,子组件自己的状态变化就会导致当前的子组件重新渲染
+                    this.setState({
+                        a: this.state.a + 1
+                    })
+                }}>子组件的按钮</button>
+                <hr/>
+                <p>state：{this.state.a}</p>
+                <p>props: {this.props.val}</p>
             </div>
         );
     }
