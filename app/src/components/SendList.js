@@ -6,11 +6,19 @@ export default class SendList extends React.Component{
     constructor(props) {
         super(props);
 
+        /**
+         * 在当前这个组件的内部会维护一个收件人的列表
+         * 我们可以通过这个组件的input输入框来新增收件人
+         *
+         * 当前这个组件的 users 会根据传入的 props 来新增数据
+         * 当前组件的 state 依赖了 props 的数据进行更新
+         */
+
         this.state = {
             users: [     // 收件人的列表 格式：{username:‘’,email:''}
-                {id: 1, name: '张三', email: 'zhangsan@email.com'},
-                {id: 2, name: '李四', email: 'lisi@email.com'},
-                {id: 3, name: '王五', email: 'wangwu@email.com'}
+                // {id: 1, name: '张三', email: 'zhangsan@email.com'},
+                // {id: 2, name: '李四', email: 'lisi@email.com'},
+                // {id: 3, name: '王五', email: 'wangwu@email.com'}
             ]
         };
 
