@@ -7,7 +7,8 @@ class App extends React.Component {
         super(props);
 
         this.state = {
-            pVal: 1
+            pVal: 1,
+            pVal2: 1
         }
     }
 
@@ -16,7 +17,7 @@ class App extends React.Component {
             <div className="App">
                 <button onClick={() => {
                     this.setState({
-                        pVal: this.state.pVal + 1
+                        pVal2: this.state.pVal2 + 1
                     })
                 }}>父组件的按钮</button>
                 <hr/>
