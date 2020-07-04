@@ -17,11 +17,15 @@ export default class SendList extends React.Component{
         this.addUser = this.addUser.bind(this);
     }
 
-    addUser({target:{value}}) {
-        this.setState({
-            // users: this.state.users.push()
-            users: [...this.state.users, {email:value}]
-        })
+    addUser(e) {
+        // enter
+        if (e.keyCode === 13) {
+            this.setState({
+                // users: this.state.users.push() 经典错误，push返回的不是数组，而是数组长度。
+                // ...this.state.users解构
+                users: [...this.state.users, {email: e.target.value}]
+            });
+        }
     }
 
     render() {
