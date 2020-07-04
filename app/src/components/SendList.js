@@ -6,19 +6,8 @@ export default class SendList extends React.Component{
     constructor(props) {
         super(props);
 
-        /**
-         * 在当前这个组件的内部会维护一个收件人的列表
-         * 我们可以通过这个组件的input输入框来新增收件人
-         *
-         * 当前这个组件的 users 会根据传入的 props 来新增数据
-         * 当前组件的 state 依赖了 props 的数据进行更新
-         */
-
         this.state = {
             users: [     // 收件人的列表 格式：{username:‘’,email:''}
-                // {id: 1, name: '张三', email: 'zhangsan@email.com'},
-                // {id: 2, name: '李四', email: 'lisi@email.com'},
-                // {id: 3, name: '王五', email: 'wangwu@email.com'}
             ]
         };
 
@@ -28,26 +17,40 @@ export default class SendList extends React.Component{
     static getDerivedStateFromProps(props, state) {
         console.log(props, state);
         if (props.friend) {
-            // 如果props传入了friend，则把传入的friend追加到state中（state依赖于外部props）
+
             return {
-                users: [...state.users, props.friend]
-            }
+                // getNewUsers必须设置为静态方法，因为静态方法只能调用静态方法，不能使用this
+                users: SendList.getNewUsers(props.friend, state.users)
+            };
         }
         return null;
     }
 
+    // 如何拿到input里的数据？1、事件源e.target 2、通过ref 3、通过受控组件
     addUser(e) {
         // enter
         if (e.keyCode === 13) {
             this.setState({
                 // users: this.state.users.push() 经典错误，push返回的不是数组，而是数组长度。
                 // ...this.state.users解构
-                users: [...this.state.users, {email: e.target.value}]
+                users: SendList.getNewUsers({email: e.target.value}, this.state.users)
             });
+            // 清空提交后的值，下次则再重新输入E-mail
+            e.target.value = '';
+        }
+    }
+
+    // 看用户是否存在，如果存在就不再添加了
+    static getNewUsers(user, users) {
+        if ( users.find(u => u.email === user.email) ) {
+            return [...users];
+        } else {
+            return [...users, user];
         }
     }
 
     render() {
+        // console.log(this.state.users)
         return(
             <div>
 
