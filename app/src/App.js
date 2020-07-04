@@ -18,8 +18,8 @@ class App extends React.Component {
             <div className="App">
                 <button onClick={() => {
                     this.setState({
-                        // pVal2: this.state.pVal2 + 1
-                        pVal: this.state.pVal + 1
+                        pVal2: this.state.pVal2 + 1
+                        // pVal: this.state.pVal + 1
                     })
                 }}>父组件的按钮</button>
                 <hr/>

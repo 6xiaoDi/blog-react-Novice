@@ -28,7 +28,7 @@ export default class LifeCycleDemo extends React.Component {
 
         console.log(this.props, nextProps);
         console.log(this.state, nextState);
-        return true;
+        return (this.props.val !== nextProps.val || this.state.a !== nextState.a);
     }
 
     render() {
