@@ -33,6 +33,7 @@ export default class LifeCycleDemo extends React.Component {
                         a: this.state.a + 1
                     })
                 }}>子组件的按钮</button>
+                <input type="text"/>
                 <hr/>
                 <p>state：{this.state.a}</p>
                 <p>props: {this.props.val}</p>
