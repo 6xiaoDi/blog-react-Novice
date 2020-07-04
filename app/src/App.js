@@ -1,6 +1,8 @@
 import React from 'react';
 import LifeCycleDemo from "./components/LifeCycleDemo";
 import Mail from "./components/Mail";
+import ErrorBoundary from "./components/ErrorBoundary";
+import ErrorDemo from "./components/ErrorDemo";
 
 class App extends React.Component {
 
@@ -26,7 +28,10 @@ class App extends React.Component {
                 {/*<LifeCycleDemo val={this.state.pVal} />*/}
 
                 {/*<hr />*/}
-                <ErrorDemo />
+                {/*<ErrorDemo />*/}
+                <ErrorBoundary>
+                    <ErrorDemo />
+                </ErrorBoundary>
             </div>
         )
     }
