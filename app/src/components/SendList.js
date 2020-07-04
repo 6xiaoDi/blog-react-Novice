@@ -14,6 +14,14 @@ export default class SendList extends React.Component{
             ]
         };
 
+        this.addUser = this.addUser.bind(this);
+    }
+
+    addUser({target:{value}}) {
+        this.setState({
+            // users: this.state.users.push()
+            users: [...this.state.users, {email:value}]
+        })
     }
 
     render() {
@@ -27,7 +35,7 @@ export default class SendList extends React.Component{
                         ))
                     }
                     <div>
-                        收件人：<input type="text" />
+                        收件人：<input type="text" onKeyDown={this.addUser} />
                     </div>
                 </div>
 
