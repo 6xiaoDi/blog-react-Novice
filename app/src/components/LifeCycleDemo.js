@@ -22,8 +22,13 @@ export default class LifeCycleDemo extends React.Component {
         console.log('componentDidMount');
     }
 
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        return this.state.value !== nextState.value;
+    // nextProps nextState 均代表最新的
+    shouldComponentUpdate(nextProps, nextState) {
+        // return this.state.value !== nextState.value;
+
+        console.log(this.props, nextProps);
+        console.log(this.state, nextState);
+        return true;
     }
 
     render() {
