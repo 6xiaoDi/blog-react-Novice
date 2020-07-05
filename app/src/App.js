@@ -6,6 +6,7 @@ import './css.css';
 
 import Home from './views/Home';
 import About from './views/About';
+import View from "./views/View";
 
 class App extends React.Component {
 
@@ -53,13 +54,18 @@ class App extends React.Component {
             <div className="App">
                 <h1>React路由</h1>
                 <hr/>
+
                 <nav>
                     <Link to="/">首页</Link>
                     <span> | </span>
                     <Link to="/about">关于我们</Link>
                 </nav>
                 <hr/>
+
                 <Route path="/" exact render={() => <Home items={this.state.items} />} />
+
+                {/*商品详情*/}
+                <Route path='/view' component={View}/>
                 <Route path="/about" component={About}/>
             </div>
         )

@@ -9,7 +9,7 @@ export default class Item extends React.Component{
         return(
             <li>
                 <span>
-                    <a href="">{item.name}</a>
+                    <Link to={"/view/"}>{item.name}</Link>
                 </span>
                 {/*保留两位小数*/}
                 <span>￥ {(item.price / 100).toFixed(2)}</span>
