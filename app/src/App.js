@@ -57,7 +57,9 @@ class App extends React.Component {
                     <Link to="/about">关于我们</Link>
                 </nav>
                 <hr/>
-                <Route path="/" component={Home} exact items={this.state.items} />
+                <Route path="/" exact  render={() => {
+                    return <div>我是render出来的</div>
+                }} />
                 <Route path="/about" component={About}/>
             </div>
         )
