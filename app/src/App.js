@@ -16,7 +16,8 @@ class App extends React.Component {
             <div className="App">
                 <h1>React路由</h1>
                 <hr/>
-                <Route path="/" component={Home}/>
+                {/*<Route path="/" component={Home}/>*/}
+                <Route path="/" component={Home} exact />
                 <Route path="/about" component={About}/>
             </div>
         )
