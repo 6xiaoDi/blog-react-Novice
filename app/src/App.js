@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Route} from 'react-router-dom';
+import {Route, Link} from 'react-router-dom';
 
 import Home from './views/Home';
 import About from './views/About';
@@ -17,12 +17,12 @@ class App extends React.Component {
                 <h1>React路由</h1>
                 <hr/>
                 <nav>
-                    <a href="/">首页</a>
+                    <Link to="/">首页</Link>
                     <span> | </span>
-                    <a href="/about">关于我们</a>
+                    <Link to="/about">关于我们</Link>
                 </nav>
-                <input type="text"/>
                 <hr/>
+                <input type="text"/>
                 <Route path="/" component={Home} exact />
                 <Route path="/about" component={About}/>
             </div>
