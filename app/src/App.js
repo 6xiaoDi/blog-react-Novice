@@ -2,6 +2,8 @@ import React from 'react';
 
 import {Route, Link} from 'react-router-dom';
 
+import './css.css';
+
 import Home from './views/Home';
 import About from './views/About';
 
