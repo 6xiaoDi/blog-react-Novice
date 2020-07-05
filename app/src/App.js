@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {Route} from 'react-router-dom';
+
 import Home from './views/Home';
 import About from './views/About';
 
@@ -10,24 +12,12 @@ class App extends React.Component {
     }
 
     render() {
-        // console.log(window.location);
-
-        let hash = window.location.hash || '#home';
-
-        console.log(hash);
-
         return (
             <div className="App">
-                {/*<Home/>*/}
-                {/*<About/>*/}
-
-                {
-                    hash === '#home' && <Home />
-                }
-
-                {
-                    hash === '#about' && <About />
-                }
+                <h1>React路由</h1>
+                <hr/>
+                <Route path="/" component={Home}/>
+                <Route path="/about" component={About}/>
             </div>
         )
     }
