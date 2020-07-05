@@ -1,21 +1,37 @@
 import React from 'react';
-import Home from "./views/Home";
-import About from "./views/About";
+
+import Home from './views/Home';
+import About from './views/About';
 
 class App extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
+    constructor(props) {
+        super(props);
+    }
 
-  render() {
-    return (
-        <div className="App">
-          <Home/>
-          <About/>
-        </div>
-    )
-  }
+    render() {
+        // console.log(window.location);
+
+        let hash = window.location.hash || '#home';
+
+        console.log(hash);
+
+        return (
+            <div className="App">
+                {/*<Home/>*/}
+                {/*<About/>*/}
+
+                {
+                    hash === '#home' && <Home />
+                }
+
+                {
+                    hash === '#about' && <About />
+                }
+            </div>
+        )
+    }
 
 }
+
 export default App;
