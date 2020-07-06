@@ -17,12 +17,13 @@ export default class Home extends React.Component {
     }
 
     sort(e) {
-        console.log(e.target.value);
-
-        let items = this.doSort(e.target.value);
-        this.setState({
-            items
-        });
+        // let items = this.doSort(e.target.value);
+        // this.setState({
+        //     items
+        // });
+        // 跳转页面
+        let {history} = this.props;
+        history.push(`/?sort=${e.target.value}`)
     }
 
     doSort(type = 'desc') {
@@ -43,14 +44,15 @@ export default class Home extends React.Component {
         let queryString = location.search.substring(1);
         // 作用：将queryString转为对象形式
         let qsTest = qs.parse(queryString, {ignoreQueryPrefix: true});
-        let sort = qsTest.sort;
-        console.log(sort);
+        let sort = qsTest.sort || 'desc';
+
+        this.doSort(sort);
 
         return (
             <div>
                 <h2>商品列表</h2>
 
-                <select onChange={this.sort}>
+                <select defaultValue={sort} onChange={this.sort}>
                     <option value="desc">降序</option>
                     <option value="asc">升序</option>
                 </select>
