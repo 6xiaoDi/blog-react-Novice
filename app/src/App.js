@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Route, Link, NavLink } from 'react-router-dom';
+import {Route, Link, NavLink, Switch} from 'react-router-dom';
 
 import './css.css';
 
@@ -67,12 +67,14 @@ class App extends React.Component {
                     <NavLink to="/about" activeStyle={{color: 'red'}}>关于我们</NavLink>
                 </nav>
                 <hr/>
-                <Route path="/" exact render={(props) => <Home items={this.state.items} {...props} />} />
-                <Route path="/view/:id(\d+)" render={(props) => {
-                    return <View {...props} items={this.state.items} />
-                }} />
-                <Route path="/about" component={About}/>
-                <Route component={NotFound} />
+                <Switch>
+                    <Route path="/" exact render={(props) => <Home items={this.state.items} {...props} />} />
+                    <Route path="/view/:id(\d+)" render={(props) => {
+                        return <View {...props} items={this.state.items} />
+                    }} />
+                    <Route path="/about" component={About}/>
+                    <Route component={NotFound} />
+                </Switch>
             </div>
         )
     }
