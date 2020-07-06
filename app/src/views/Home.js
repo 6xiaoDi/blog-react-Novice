@@ -37,10 +37,11 @@ export default class Home extends React.Component {
         // 取默认排序好的items
         let {items} = this.state;
 
-        // 从 url 的 querystring 上来获取
-        console.log(window.location);
-        console.log(window.location.search);
-        console.log(window.location.search.substring(1));
+        let queryString = window.location.search.substring(1);
+        // 作用：将queryString转为对象形式
+        let qs = new URLSearchParams(queryString);
+        console.log(qs);
+        console.log(qs.get('sort'));
 
         return (
             <div>
