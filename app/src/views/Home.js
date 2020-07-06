@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Item from '../components/Item.js';
+import qs from 'qs';
 
 export default class Home extends React.Component {
 
@@ -39,9 +40,9 @@ export default class Home extends React.Component {
 
         let queryString = window.location.search.substring(1);
         // 作用：将queryString转为对象形式
-        let qs = new URLSearchParams(queryString);
-        console.log(qs);
-        console.log(qs.get('sort'));
+        let qsTest = qs.parse(queryString, {ignoreQueryPrefix: true});
+        let sort = qsTest.sort;
+        console.log(sort);
 
         return (
             <div>
