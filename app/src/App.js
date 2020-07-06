@@ -7,6 +7,7 @@ import './css.css';
 import Home from './views/Home';
 import About from './views/About';
 import View from "./views/View";
+import NotFound from "./views/NotFound";
 
 class App extends React.Component {
 
@@ -66,12 +67,12 @@ class App extends React.Component {
                     <NavLink to="/about" activeStyle={{color: 'red'}}>关于我们</NavLink>
                 </nav>
                 <hr/>
-
                 <Route path="/" exact render={(props) => <Home items={this.state.items} {...props} />} />
                 <Route path="/view/:id(\d+)" render={(props) => {
                     return <View {...props} items={this.state.items} />
                 }} />
                 <Route path="/about" component={About}/>
+                <Route component={NotFound} />
             </div>
         )
     }
