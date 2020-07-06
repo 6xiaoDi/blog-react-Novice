@@ -37,6 +37,11 @@ export default class Home extends React.Component {
         // 取默认排序好的items
         let {items} = this.state;
 
+        // 从 url 的 querystring 上来获取
+        console.log(window.location);
+        console.log(window.location.search);
+        console.log(window.location.search.substring(1));
+
         return (
             <div>
                 <h2>商品列表</h2>
