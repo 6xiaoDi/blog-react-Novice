@@ -63,7 +63,9 @@ class App extends React.Component {
                 <hr/>
 
                 <Route path="/" exact render={() => <Home items={this.state.items} />} />
-                <Route path='/view/:id(\d+)' component={View}/>
+                <Route path="/view/:id(\d+)" render={() => {
+                    return <View/>
+                }} />
                 <Route path="/about" component={About}/>
             </div>
         )

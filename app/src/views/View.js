@@ -3,8 +3,8 @@ import React from 'react';
 export default class View extends React.Component {
 
     render() {
-
-        // console.log(this.props);
+        
+        console.log(this.props);
         let {id} = this.props.match.params;
         console.log(id)
 
