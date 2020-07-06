@@ -63,8 +63,11 @@ class App extends React.Component {
                 <hr/>
 
                 <Route path="/" exact render={() => <Home items={this.state.items} />} />
-                <Route path="/view/:id(\d+)" render={() => {
-                    return <View/>
+                <Route path="/view/:id(\d+)" render={(props) => {
+                    // es5 写法太长了
+                    // return <View match={props.match} history={props.history} location={props.location} />
+                    // es6写法比较简练，解构（扩展运算符）
+                    return <View {...props} items={this.state.items} />
                 }} />
                 <Route path="/about" component={About}/>
             </div>
