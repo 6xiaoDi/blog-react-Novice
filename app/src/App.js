@@ -9,6 +9,8 @@ import About from './views/About';
 import View from "./views/View";
 import NotFound from "./views/NotFound";
 import Cart from "./views/Cart";
+import Redirect from "react-router-dom/es/Redirect";
+import Login from "./views/Login";
 
 class App extends React.Component {
 
@@ -16,6 +18,12 @@ class App extends React.Component {
         super(props);
 
         this.state = {
+            // 用户信息
+            userInfo: {
+                id: 1,
+                username: ''
+            },
+
             items: [
                 {
                     id: 1,
@@ -75,7 +83,15 @@ class App extends React.Component {
                     <Route path="/view/:id(\d+)" render={(props) => {
                         return <View {...props} items={this.state.items} />
                     }} />
-                    <Route path="/cart" component={Cart}/>
+                    <Route path="/cart" component={() => {
+                        if (this.state.userInfo.id > 0) {
+                            return <Cart />;
+                        } else {
+                            // 重定向组件
+                            return <Redirect to='/login' />;
+                        }
+                    }}/>
+                    <Route path="/login" activeStyle={{color:'red'}} exact component={Login}/>
                     <Route path="/about" component={About}/>
                     <Route component={NotFound} />
                 </Switch>
