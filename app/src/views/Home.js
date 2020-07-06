@@ -5,9 +5,12 @@ import Item from '../components/Item.js';
 export default class Home extends React.Component {
 
     render() {
-
-
+        
         let {items} = this.props;
+
+        items = items.sort( (a, b) => {
+            return b.price - a.price;
+        } );
 
         return (
             <div>
