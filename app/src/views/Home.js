@@ -7,26 +7,35 @@ export default class Home extends React.Component {
     constructor(props) {
         super(props);
 
+        // 默认降序，赋给state
+        this.state = {
+            items: this.doSort('desc')
+        };
+
         this.sort = this.sort.bind(this);
     }
 
     sort(e) {
         console.log(e.target.value);
 
-        let {items} = this.props;
-
-        items = items.sort( (a, b) => {
-            return 'desc' === e.target.value ? b.price - a.price : a.price - b.price;
-        } );
-
+        let items = this.doSort(e.target.value);
         this.setState({
             items
         });
     }
 
+    doSort(type = 'desc') {
+        let {items} = this.props;
+
+        return items.sort( (a, b) => {
+            return 'desc' === type ? b.price - a.price : a.price - b.price;
+        } );
+    }
+
     render() {
 
-        let {items} = this.props;
+        // 取默认排序好的items
+        let {items} = this.state;
 
         return (
             <div>
