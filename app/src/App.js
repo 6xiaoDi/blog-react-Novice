@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Route, Link, NavLink, Switch} from 'react-router-dom';
+import {Route, Link, NavLink, Redirect, Switch} from 'react-router-dom';
 
 import './css.css';
 
@@ -9,7 +9,6 @@ import About from './views/About';
 import View from "./views/View";
 import NotFound from "./views/NotFound";
 import Cart from "./views/Cart";
-import Redirect from "react-router-dom/es/Redirect";
 import Login from "./views/Login";
 
 class App extends React.Component {

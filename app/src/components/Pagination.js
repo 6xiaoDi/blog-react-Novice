@@ -30,7 +30,7 @@ class Pagination extends React.Component {
                                 key={++i}
                                 // 高亮当前页
                                 className={i === page ? 'active' : ''}
-                                to={'/'+i}
+                                to={'/?page='+i}
                             >
                                 {i}
                             </Link>
@@ -52,4 +52,4 @@ class Pagination extends React.Component {
     }
 
 }
-export default Pagination;
+export default withRouter(Pagination);
