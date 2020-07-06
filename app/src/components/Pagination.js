@@ -17,7 +17,8 @@ class Pagination extends React.Component {
     }
 
     render() {
-        let {pages, page} = this.props;
+        // let {pages, page} = this.props;
+        let {pages, page, history} = this.props;
 
         return (
             // 根据当前页，渲染a标签
@@ -37,8 +38,13 @@ class Pagination extends React.Component {
                     })
                 }
                 前往
+                {/*完善分页的跳转某页的功能*/}
                 <input type="text" className="goto" onKeyDown={e=>{
-
+                    //  输入跳转页
+                    if (e.target.value !== '' && e.keyCode == 13) {
+                        // 跳转页面：刷新url
+                        history.push('/?page=' + e.target.value);
+                    }
                 }} />
                 页
             </div>
