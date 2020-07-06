@@ -71,7 +71,8 @@ export default class Home extends React.Component {
                 <hr/>
 
                 <div>
-                    <Pagination page={page} pages={10} />
+                    {/*<Pagination page={page} pages={10} />*/}
+                    <Pagination history={this.props.history} page={page} pages={10} />
                 </div>
             </div>
         );
