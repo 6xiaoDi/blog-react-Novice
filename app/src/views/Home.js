@@ -37,8 +37,10 @@ export default class Home extends React.Component {
 
         // 取默认排序好的items
         let {items} = this.state;
+        let {location} = this.props;
 
-        let queryString = window.location.search.substring(1);
+        // let queryString = window.location.search.substring(1);
+        let queryString = location.search.substring(1);
         // 作用：将queryString转为对象形式
         let qsTest = qs.parse(queryString, {ignoreQueryPrefix: true});
         let sort = qsTest.sort;
