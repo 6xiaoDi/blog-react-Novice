@@ -8,6 +8,7 @@ import Home from './views/Home';
 import About from './views/About';
 import View from "./views/View";
 import NotFound from "./views/NotFound";
+import Cart from "./views/Cart";
 
 class App extends React.Component {
 
@@ -64,6 +65,8 @@ class App extends React.Component {
                         return match || location.pathname.startsWith('/view');
                     }}>首页</NavLink>
                     <span> | </span>
+                    <NavLink to="/cart" activeStyle={{color:'red'}} exact>购物车</NavLink>
+                    <span> | </span>
                     <NavLink to="/about" activeStyle={{color: 'red'}}>关于我们</NavLink>
                 </nav>
                 <hr/>
@@ -72,6 +75,7 @@ class App extends React.Component {
                     <Route path="/view/:id(\d+)" render={(props) => {
                         return <View {...props} items={this.state.items} />
                     }} />
+                    <Route path="/cart" component={Cart}/>
                     <Route path="/about" component={About}/>
                     <Route component={NotFound} />
                 </Switch>
