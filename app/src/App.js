@@ -56,7 +56,12 @@ class App extends React.Component {
                 <hr/>
 
                 <nav>
-                    <NavLink to="/" activeStyle={{color: 'red'}} exact={true}   >首页</NavLink>
+                    <NavLink to="/" exact={true} activeStyle={{color: 'red'}} isActive={(match, location) => {
+                        // match当前匹配的 location 当前地址栏信息
+                        // console.log(match, location);
+                        // match 为真后面无需处理 否则以'/view'命名开始
+                        return match || location.pathname.startsWith('/view');
+                    }}>首页</NavLink>
                     <span> | </span>
                     <NavLink to="/about" activeStyle={{color: 'red'}}>关于我们</NavLink>
                 </nav>
