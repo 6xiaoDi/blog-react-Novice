@@ -2,6 +2,7 @@ import React from 'react';
 
 import Item from '../components/Item.js';
 import qs from 'qs';
+import Pagination from "../components/Pagination";
 
 export default class Home extends React.Component {
 
@@ -47,6 +48,7 @@ export default class Home extends React.Component {
         let sort = qsTest.sort || 'desc';
 
         this.doSort(sort);
+        let page = Number(qsTest.page) || 1;
 
         return (
             <div>
@@ -66,6 +68,11 @@ export default class Home extends React.Component {
                         items.map( item => <Item item={item} key={item.id} /> )
                     }
                 </ul>
+                <hr/>
+
+                <div>
+                    <Pagination page={page} pages={10} />
+                </div>
             </div>
         );
     }

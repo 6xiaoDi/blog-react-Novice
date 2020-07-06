@@ -11,7 +11,6 @@ import NotFound from "./views/NotFound";
 import Cart from "./views/Cart";
 import Redirect from "react-router-dom/es/Redirect";
 import Login from "./views/Login";
-import Pagination from "./components/Pagination";
 
 class App extends React.Component {
 
@@ -96,9 +95,6 @@ class App extends React.Component {
                     <Route path="/about" component={About}/>
                     <Route component={NotFound} />
                 </Switch>
-
-                <hr/>
-                <Pagination page={1} pages={10} />
             </div>
         )
     }
