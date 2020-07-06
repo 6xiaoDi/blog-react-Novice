@@ -1,13 +1,12 @@
 import React from 'react';
 
-import {Route, Link} from 'react-router-dom';
+import {Route, Link, NavLink } from 'react-router-dom';
 
 import './css.css';
 
 import Home from './views/Home';
 import About from './views/About';
 import View from "./views/View";
-import NavLink from "react-router-dom/modules/NavLink";
 
 class App extends React.Component {
 
@@ -57,7 +56,7 @@ class App extends React.Component {
                 <hr/>
 
                 <nav>
-                    <NavLink to="/" activeStyle={{color: 'red'}}>首页</NavLink>
+                    <NavLink to="/" activeStyle={{color: 'red'}} exact={true}   >首页</NavLink>
                     <span> | </span>
                     <NavLink to="/about" activeStyle={{color: 'red'}}>关于我们</NavLink>
                 </nav>
