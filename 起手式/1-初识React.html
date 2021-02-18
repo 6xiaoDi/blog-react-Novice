@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        // 类似模板引擎的render，是渲染界面用的！
+        /*
+            render(Vnode, container[, callback])
+              Vnode: 要渲染的内容，可以是数字字符串 或 ReactNode
+              container: 要挂载的容器(要将内容渲染到哪个元素中，即渲染内容放置在页面的什么位置)
+              callback 渲染完时的回调
+        */
+        ReactDOM.render(
+            //'<div>我要渲染的内容</div>',
+            '我要渲染的内容',
+            document.querySelector('#app')
+        );
+    </script>
+</body>
+</html>
