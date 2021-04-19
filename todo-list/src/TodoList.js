@@ -20,7 +20,7 @@ class TodoList extends Component {
                 <ul>
                     {
                         this.state.list.map((val, index) => {
-                            return <li key={index}>{val}</li>
+                            return <li key={index} onClick={this.delTask.bind(this, index)}>{val}</li>
                         })
                     }
                 </ul>
@@ -40,6 +40,20 @@ class TodoList extends Component {
         this.setState({
             list: [...this.state.list, this.state.inputVal],
             inputVal: "",
+        })
+    }
+
+    // delTask(index) {
+    //     const dest = [...this.state.list]
+    //     dest.splice(index, 1)
+    //     this.setState({
+    //         list: dest,
+    //     })
+    // }
+
+    delTask(index) {
+        this.setState({
+            list: this.state.list.filter((e, i) => index != i),
         })
     }
 }
