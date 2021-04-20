@@ -1,4 +1,5 @@
 import React, {Component, Fragment} from 'react'
+import './TodoList.css'
 
 class TodoList extends Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class TodoList extends Component {
         return (
             <Fragment>
                 <div>
-                    <input type="text" value={this.state.inputVal} onChange={this.inputHandle.bind(this)}/>
+                    <input type="text" className="input" value={this.state.inputVal} onChange={this.inputHandle.bind(this)}/>
                     <button onClick={this.submitTask.bind(this)}>提交</button>
                 </div>
                 <ul>
