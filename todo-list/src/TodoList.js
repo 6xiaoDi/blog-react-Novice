@@ -15,13 +15,14 @@ class TodoList extends Component {
         return (
             <Fragment>
                 <div>
-                    <input type="text" className="input" value={this.state.inputVal} onChange={this.inputHandle.bind(this)}/>
+                    <label htmlFor="inputTask">输入任务：</label>
+                    <input id="inputTask" type="text" className="input" value={this.state.inputVal} onChange={this.inputHandle.bind(this)}/>
                     <button onClick={this.submitTask.bind(this)}>提交</button>
                 </div>
                 <ul>
                     {
                         this.state.list.map((val, index) => {
-                            return <li key={index} onClick={this.delTask.bind(this, index)}>{val}</li>
+                            return <li dangerouslySetInnerHTML={{__html: val}} key={index} onClick={this.delTask.bind(this, index)}></li>
                         })
                     }
                 </ul>
