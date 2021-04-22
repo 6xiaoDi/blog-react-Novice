@@ -10,6 +10,8 @@ class TodoList extends Component {
             inputVal: '',
             list: ["数学","英语","语文"]
         }
+
+        this.delTask = this.delTask.bind(this)
     }
 
     render() {
@@ -24,12 +26,11 @@ class TodoList extends Component {
                     {
                         this.state.list.map((val, index) => {
                             return (
-                                <div>
-                                    <TodoItem/>
-                                    {/*<li dangerouslySetInnerHTML={{__html: val}} key={index}
-                                        onClick={this.delTask.bind(this, index)}></li>
-                                    */}
-                                </div>
+                                <TodoItem
+                                    listVal={val}
+                                    deleteItem={this.delTask}
+                                    index={index}
+                                />
                             )
 
                         })

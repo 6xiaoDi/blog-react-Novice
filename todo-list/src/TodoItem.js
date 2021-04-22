@@ -2,16 +2,20 @@ import React, {Component} from 'react'
 
 class TodoItem extends Component {
     constructor() {
-        super();
+        super()
+        this.delCurrent = this.delCurrent.bind(this)
     }
 
     render(){
         return(
-            <div>
-                <div>111</div>
-                <div>222</div>
-                <div>333</div>
-            </div>)
+                <li
+                    dangerouslySetInnerHTML={{__html: this.props.listVal}}
+                    onClick={this.delCurrent}
+                ></li>
+        )}
+
+    delCurrent(){
+        this.props.deleteItem(this.props.index)
     }
 }
 
