@@ -7,15 +7,17 @@ class TodoItem extends Component {
     }
 
     render(){
+        const {listVal} = this.props
         return(
                 <li
-                    dangerouslySetInnerHTML={{__html: this.props.listVal}}
+                    dangerouslySetInnerHTML={{__html: listVal}}
                     onClick={this.delCurrent}
                 ></li>
         )}
 
     delCurrent(){
-        this.props.deleteItem(this.props.index)
+        const {index} = this.props
+        this.props.deleteItem(index)
     }
 }
 

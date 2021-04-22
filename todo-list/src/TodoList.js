@@ -6,12 +6,14 @@ class TodoList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            // inputVal: 'helloWorld',
             inputVal: '',
             list: ["数学","英语","语文"]
         }
 
         this.delTask = this.delTask.bind(this)
+        this.submitTask = this.submitTask.bind(this)
+        this.inputHandle = this.inputHandle.bind(this)
+        this.getTodoItem = this.getTodoItem.bind(this)
     }
 
     render() {
@@ -19,30 +21,21 @@ class TodoList extends Component {
             <Fragment>
                 <div>
                     <label htmlFor="inputTask">输入任务：</label>
-                    <input id="inputTask" type="text" className="input" value={this.state.inputVal} onChange={this.inputHandle.bind(this)}/>
-                    <button onClick={this.submitTask.bind(this)}>提交</button>
+                    <input
+                        id="inputTask"
+                        type="text"
+                        className="input"
+                        value={this.state.inputVal}
+                        onChange={this.inputHandle}
+                    />
+                    <button onClick={this.submitTask}>提交</button>
                 </div>
-                <ul>
-                    {
-                        this.state.list.map((val, index) => {
-                            return (
-                                <TodoItem
-                                    listVal={val}
-                                    deleteItem={this.delTask}
-                                    index={index}
-                                />
-                            )
-
-                        })
-                    }
-                </ul>
+                <ul>{this.getTodoItem()}</ul>
             </Fragment>
         )
     }
 
     inputHandle(e) {
-        // console.log(this)
-        // this.state.inputVal = e.target.value
         this.setState({
             inputVal: e.target.value,
         })
@@ -65,8 +58,24 @@ class TodoList extends Component {
 
     delTask(index) {
         this.setState({
-            list: this.state.list.filter((e, i) => index != i),
+            list: this.state.list.filter((e, i) => index !== i),
         })
+    }
+
+    getTodoItem() {
+        return (
+            this.state.list.map((val, index) => {
+                return (
+                    <TodoItem
+                        listVal={val}
+                        deleteItem={this.delTask}
+                        index={index}
+                        key={index}
+                    />
+                )
+
+            })
+        )
     }
 }
 
