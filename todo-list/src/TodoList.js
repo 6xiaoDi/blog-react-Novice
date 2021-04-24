@@ -36,16 +36,23 @@ class TodoList extends Component {
     }
 
     inputHandle(e) {
-        this.setState({
-            inputVal: e.target.value,
-        })
+        // this.setState({
+        //     inputVal: e.target.value,
+        // })
+        this.setState(() => ({
+            inputVal: e.target.value
+        }))
     }
 
     submitTask() {
-        this.setState({
-            list: [...this.state.list, this.state.inputVal],
+        // this.setState({
+        //     list: [...this.state.list, this.state.inputVal],
+        //     inputVal: "",
+        // })
+        this.setState((prevState) => ({
+            list: [...prevState.list, prevState.inputVal],
             inputVal: "",
-        })
+        }))
     }
 
     // delTask(index) {
@@ -56,9 +63,22 @@ class TodoList extends Component {
     //     })
     // }
 
+    // delTask(index) {
+    //     // this.setState({
+    //     //     list: this.state.list.filter((e, i) => index !== i),
+    //     // })
+    //     this.setState((prevState) => ({
+    //         list: prevState.list.filter((e, i) => index !== i),
+    //     }))
+    // }
+
     delTask(index) {
-        this.setState({
-            list: this.state.list.filter((e, i) => index !== i),
+        this.setState(() => {
+            const dest = [...this.state.list]
+            dest.splice(index, 1)
+            return ({
+                list: dest,
+            })
         })
     }
 
