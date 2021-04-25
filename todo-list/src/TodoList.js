@@ -87,7 +87,8 @@ class TodoList extends Component {
             this.state.list.map((val, index) => {
                 return (
                     <TodoItem
-                        listVal={val}
+                        listVal={123}
+                        // listVal={val}
                         deleteItem={this.delTask}
                         index={index}
                         key={index}

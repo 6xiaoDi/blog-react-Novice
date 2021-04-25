@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types';
 
 class TodoItem extends Component {
     constructor() {
@@ -16,9 +17,15 @@ class TodoItem extends Component {
         )}
 
     delCurrent(){
-        const {index} = this.props
-        this.props.deleteItem(index)
+        const {index,deleteItem} = this.props
+        deleteItem(index)
     }
+}
+
+TodoItem.propTypes = {
+    listVal: PropTypes.string,
+    index:  PropTypes.number,
+    deleteItem: PropTypes.func,
 }
 
 export default TodoItem
