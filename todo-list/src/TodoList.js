@@ -17,6 +17,7 @@ class TodoList extends Component {
     }
 
     render() {
+        console.log("TodoList----------render()")
         return (
             <Fragment>
                 <div>
@@ -88,7 +89,7 @@ class TodoList extends Component {
                 return (
                     <TodoItem
                         // listVal={123}
-                        // listVal={val}
+                        listVal={val}
                         deleteItem={this.delTask}
                         index={index}
                         key={index}
