@@ -23,9 +23,13 @@ class TodoItem extends Component {
 }
 
 TodoItem.propTypes = {
-    listVal: PropTypes.string,
+    listVal: PropTypes.string.isRequired,
     index:  PropTypes.number,
     deleteItem: PropTypes.func,
+}
+
+TodoItem.defaultProps = {
+    listVal:"未知"
 }
 
 export default TodoItem
